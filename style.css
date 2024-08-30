@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: 3%;
+    background-color: #232323;
+
+
+}
+
+form {
+    max-width: 1000px;
+    width: 100%;
+}
+
+input,
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    /* Вимикає стандартну рамку фокусу */
+    box-shadow: none;
+    /* Видаляє тінь фокусу, якщо така є */
+    color: #fff;
+    background-color: #232323;
+
+}
+
+textarea {
+    overflow: hidden;
+    resize: none;
+    /* Забороняє вручну змінювати розмір */
+}
+
+button {
+    margin-top: 10px;
+}
+
+/* Текст в полі */
+/* Стилізація placeholder для конкретного поля */
+.placeholder-one::placeholder {
+    color: #696969;
+    font-size: 45px;
+    font-family: Arial Black;
+}
+
+.placeholder-two::placeholder {
+    color: #696969;
+    font-size: 17px;
+    font-family: 'Arial', sans-serif;
+}
+
+.placeholder-three::placeholder {
+    color: #696969;
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.placeholder-one {
+    font-family: Arial Black;
+    font-size: 45px;
+    border: none;
+}
+
+.placeholder-two {
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+}
+
+.placeholder-three {
+    font-size: 20px;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+}
+
+
+
+.photo-photo {
+    width: 25px;
+    height: 25px;
+}
+
+.save-post {
+    width: 25px;
+    height: 25px;
+}
+
+.button-save {
+    background-color: #232323;
+    border: 2px solid #232323;
+    color: #fff;
+    margin: 0%;
+    padding: 0%;
+    border-radius: 30px;
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Всі статті TOBASE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="authSection">
+        <h1>Вхід в панель адміністратора</h1>
+        <form id="authForm">
+            <label for="password">Пароль:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit">Увійти</button>
+        </form>
+    </div>
+
+    <div id="articlesSection" style="display: none;">
+        <h1>Усі статті</h1>
+        <div id="articlesList"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const AUTH_PASSWORD = '2202'; // Заміни на свій пароль
+
+            const authSection = document.getElementById('authSection');
+            const articlesSection = document.getElementById('articlesSection');
+            const authForm = document.getElementById('authForm');
+            const passwordField = document.getElementById('password');
+            const articlesList = document.getElementById('articlesList');
+
+            // Функція для відображення статей
+            function displayArticles(articles) {
+                if (articles.length === 0) {
+                    articlesList.innerHTML = '<p>Немає статей.</p>';
+                    return;
+                }
+
+                articlesList.innerHTML = articles.map(article => `
+                    <div class="article">
+                        <h2>${article.title}</h2>
+                        <p><strong>Автор:</strong> ${article.author}</p>
+                        <p>${article.text}</p>
+                        ${article.image ? `<img src="${article.image}" alt="Image" style="max-width: 100%;">` : ''}
+                        <a href="article.html?id=${article.id}">Читати далі</a>
+                    </div>
+                `).join('');
+            }
+
+            // Обробка форми авторизації
+            authForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const password = passwordField.value.trim();
+
+                if (password === AUTH_PASSWORD) {
+                    authSection.style.display = 'none';
+                    articlesSection.style.display = 'block';
+                    
+                    // Завантаження статей з localStorage
+                    const articles = JSON.parse(localStorage.getItem('articles')) || [];
+                    displayArticles(articles);
+                } else {
+                    alert('Неправильний пароль!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
